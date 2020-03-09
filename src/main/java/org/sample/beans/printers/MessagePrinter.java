@@ -1,6 +1,7 @@
 package org.sample.beans.printers;
 
 import org.sample.beans.decorators.MessageDecorator;
+import org.sample.beans.producers.FileMessage;
 import org.sample.beans.producers.MessageProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -15,7 +16,7 @@ public class MessagePrinter {
     public MessagePrinter(){}
 
     @Autowired
-    public MessagePrinter(@Qualifier("FileMessageProducer") MessageProducer messageProducer){
+    public MessagePrinter(@FileMessage MessageProducer messageProducer){
         this.messageProducer = messageProducer;
     }
 

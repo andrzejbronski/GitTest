@@ -9,7 +9,7 @@ package org.sample.beans.producers;
         import java.nio.file.Paths;
         import java.util.List;
 @Component
-@Qualifier("FileMessageProducer")
+@FileMessage
 public class FileMessageProducer implements MessageProducer {
 
     @Override
