@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("UpperCaseMessageDecorator")
+@Decorator(type = Decorator.DecoratorType.UPPER)
 public class UpperCaseMessageDecorator implements MessageDecorator {
     @Override
     public String decorate(String msg) {

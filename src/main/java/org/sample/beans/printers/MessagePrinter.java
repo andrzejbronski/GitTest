@@ -1,8 +1,9 @@
 package org.sample.beans.printers;
 
+import org.sample.beans.decorators.Decorator;
 import org.sample.beans.decorators.MessageDecorator;
-import org.sample.beans.producers.FileMessage;
 import org.sample.beans.producers.MessageProducer;
+import org.sample.beans.producers.Producer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -16,7 +17,7 @@ public class MessagePrinter {
     public MessagePrinter(){}
 
     @Autowired
-    public MessagePrinter(@FileMessage MessageProducer messageProducer){
+    public MessagePrinter(@Producer(type = Producer.ProducerType.SIMPLE) MessageProducer messageProducer){
         this.messageProducer = messageProducer;
     }
 
@@ -28,7 +29,7 @@ public class MessagePrinter {
         this.messageProducer = messageProducer;
     }
     @Autowired
-    public void setMessageDecorator(@Qualifier("UpperCaseMessageDecorator") MessageDecorator messageDecorator){
+    public void setMessageDecorator(@Decorator(type = Decorator.DecoratorType.UPPER) MessageDecorator messageDecorator){
         this.messageDecorator = messageDecorator;
     }
     public void print(){

@@ -1,4 +1,4 @@
-package org.sample.beans.producers;
+package org.sample.beans.decorators;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -13,5 +13,11 @@ import java.lang.annotation.Target;
         ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 @Qualifier
-public @interface FileMessage {
+public @interface Decorator {
+
+    DecoratorType type();
+
+    public enum DecoratorType{
+        LOWER, UPPER;
+    }
 }

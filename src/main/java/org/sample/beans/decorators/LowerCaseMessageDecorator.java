@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-@Qualifier("LowerCaseMessageDecorator")
+@Decorator(type = Decorator.DecoratorType.LOWER)
 public class LowerCaseMessageDecorator implements MessageDecorator {
     @Override
     public String decorate(String msg) {
