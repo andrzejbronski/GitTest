@@ -1,4 +1,4 @@
-package org.sample.beans;
+package org.sample.beans.producers;
 
 public interface MessageProducer {
     public String getMessage();
